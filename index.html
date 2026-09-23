@@ -324,6 +324,23 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
   .bubble.kid{right:4%;width:50%;top:48%}
   .bubble.kid::after{left:36%}
 
+  /* --- per page corrections for the phone crop --- */
+  /* photo page: the block was landing on the carved stone above the arch */
+  [data-label="The wedding day"] .inner{--y:30%}
+  .bubble.dog{top:50%}
+  .bubble.kid{top:55%}
+
+  /* countdown: title was straddling the top edge of the artwork */
+  [data-label="Counting the days"] .inner{--y:38%}
+
+  /* bride and groom: cards were spilling over the painted pillars either side */
+  [data-label="Bride and groom"] .card{max-width:78%!important;padding:14px 13px!important}
+  [data-label="Bride and groom"] .name{font-size:1.25rem!important}
+  [data-label="Bride and groom"] .lineage{font-size:.8rem;line-height:1.65;margin-top:7px}
+  [data-label="Bride and groom"] .rule{margin:8px 0}
+  [data-label="Bride and groom"] .rule::before,
+  [data-label="Bride and groom"] .rule::after{width:28px}
+
   .dl b{font-size:1.1rem}
   .dl .sep{height:30px}
   .unit{width:60px;height:60px}
