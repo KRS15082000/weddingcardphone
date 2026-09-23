@@ -281,6 +281,15 @@ h2.big{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2
 
 footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;background:#130b08;color:#d9bd86}
 
+/* vertical placement per page, kept here rather than inline so the phone
+   rules further down can actually override them */
+[data-label="Save the date"] .inner{--y:43%}
+[data-label="Invitation"] .inner{--y:50%}
+[data-label="Bride and groom"] .inner{--y:57%}
+[data-label="Celebrations"] .inner{--y:50%}
+[data-label="The wedding day"] .inner{--y:11%}
+[data-label="Counting the days"] .inner{--y:28%}
+
 /* ==================== PHONES ====================
    Filling a tall screen meant cropping the artwork, which ate the decorative
    borders. So the whole card is shown intact and the leftover space above and
@@ -317,7 +326,6 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
   .card.crisp .addr{font-size:.86rem}
 
   /* the photo page: text sits inside the arch, bubbles re-aimed for the new fit */
-  [data-label="The wedding day"] .inner{--y:21%}
   .bubble{font-size:.8rem;padding:9px 12px;border-radius:14px}
   .bubble.dog{left:5%;width:46%;top:42%}
   .bubble.dog::after{right:20%}
@@ -541,7 +549,7 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
   <div class="stick">
     <div class="art" style="background-image:url('img/hero.jpg')"></div>
     <div class="tint" style="background:#0d0705"></div>
-    <div class="hold"><div class="inner scrim" style="--y:43%">
+    <div class="hold"><div class="inner scrim">
       <div class="shrine rv">
         <span class="glow"></span>
         <span class="chakra" aria-hidden="true"></span>
@@ -559,7 +567,7 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
     <div class="art" data-src="img/bells.jpg"></div>
     <div class="veil top"></div><div class="veil bottom"></div>
     <div class="tint" style="background:linear-gradient(180deg,#4ba0e6,#2f78c4)"></div>
-    <div class="hold"><div class="inner" style="--y:50%">
+    <div class="hold"><div class="inner">
       <div class="panelbox rv" style="max-width:min(600px,90%)">
         <div class="rule" style="margin-top:0"><i class="dia"></i></div>
         <p class="script rv d1" style="color:#3a1a0a;font-size:clamp(1rem,1.5vw,1.36rem);line-height:1.95">
@@ -583,7 +591,7 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
   <div class="stick">
     <div class="art" data-src="img/bride.jpg"></div>
     <div class="tint" style="background:linear-gradient(180deg,#b9d2cc,#9cbcb5)"></div>
-    <div class="hold"><div class="inner" style="--y:57%">
+    <div class="hold"><div class="inner">
       <div class="card rv" style="max-width:min(430px,90%);margin:0 auto">
         <p class="eyebrow gold">The Bride</p>
         <div class="rule"><i class="dia"></i></div>
@@ -609,7 +617,7 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
     <div class="art cover" data-src="img/corridor.jpg"></div>
     <div class="veil top"></div><div class="veil bottom"></div>
     <div class="tint" style="background:linear-gradient(180deg,#f6e8ca,#e9d6ae)"></div>
-    <div class="hold"><div class="inner" style="--y:50%">
+    <div class="hold"><div class="inner">
       <div class="card crisp rv" style="max-width:min(540px,93%);margin:0 auto;text-align:left;
                                         padding:clamp(20px,2.8vh,32px) clamp(20px,2.8vw,34px)">
         <p class="head rv">Three days of us</p>
@@ -664,7 +672,7 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
     <div class="tint" style="background:linear-gradient(180deg,#b9935f,#8a6b49)"></div>
 
     <div class="hold">
-      <div class="inner" style="--y:11%">
+      <div class="inner">
         <h2 class="name gold rv" style="font-size:clamp(1.35rem,2.5vw,2rem)">Vartika &amp; Jairam</h2>
         <div class="dl rv d1" style="max-width:min(380px,82%);margin:12px auto 0">
           <div><b>MON</b><span>Day</span></div><i class="sep"></i>
@@ -683,7 +691,7 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
   <div class="stick">
     <div class="art" data-src="img/closing.jpg"></div>
     <div class="tint" style="background:linear-gradient(180deg,#bfe0f2,#8fc0dd)"></div>
-    <div class="hold"><div class="inner" style="--y:28%">
+    <div class="hold"><div class="inner">
       <h2 class="big gold rv">Counting the Days</h2>
       <p class="eyebrow gold rv d1" style="opacity:.8;margin-top:8px">Until we say yes, in Lucknow</p>
       <div class="count rv d2" id="count" role="timer" aria-label="Time until the wedding">
