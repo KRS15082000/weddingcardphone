@@ -205,6 +205,13 @@ h2.big{font-family:"Cinzel",serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2
 .lineage{font-family:"Cormorant Garamond",serif;color:var(--deep);
   font-size:clamp(.88rem,1.15vw,1.06rem);line-height:1.75;margin-top:10px;
   text-wrap:balance}
+/* grouped family lines: small gold label over each pair of names */
+.lineage.kin{line-height:1.35}
+.lineage.kin p{margin:0}
+.lineage.kin .nw{white-space:nowrap}
+.lineage.kin p + p{margin-top:9px;padding-top:9px;border-top:1px solid rgba(168,118,26,.22)}
+.kin-l{display:block;font-family:"Cinzel",serif;font-size:.56rem;letter-spacing:.2em;
+  text-transform:uppercase;color:#a8761a;margin-bottom:2px}
 .mantra{font-family:"Tiro Devanagari Hindi","Noto Serif Devanagari","Nirmala UI",serif;
   font-weight:400;font-size:clamp(1.45rem,4.2vh,2.85rem);line-height:1.75;letter-spacing:.015em}
 /* soft shade so white type holds against the open sky */
@@ -341,13 +348,25 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
   /* countdown: title was straddling the top edge of the artwork */
   [data-label="Counting the days"] .inner{--y:38%}
 
-  /* bride and groom: cards were spilling over the painted pillars either side */
-  [data-label="Bride and groom"] .card{max-width:78%!important;padding:14px 13px!important}
-  [data-label="Bride and groom"] .name{font-size:1.25rem!important}
-  [data-label="Bride and groom"] .lineage{font-size:.8rem;line-height:1.65;margin-top:7px}
-  [data-label="Bride and groom"] .rule{margin:8px 0}
+  /* bride and groom: on a phone the temple painting only fills the middle of
+     the screen, so the text box is shrunk to exactly the painting and every
+     size is tied to its height, keeping both cards inside the artwork */
+  [data-label="Bride and groom"] .hold{height:min(100svh, calc(100vw / var(--ar)));
+    container-type:size}
+  [data-label="Bride and groom"] .inner{--y:50%;padding:0 4%;
+    font-size:clamp(10px, 2.75cqh, 16px)}
+  [data-label="Bride and groom"] .card{max-width:84%!important;
+    padding:.85em .8em .95em!important;margin:0 auto!important}
+  [data-label="Bride and groom"] .eyebrow{font-size:.66em;letter-spacing:.24em}
+  [data-label="Bride and groom"] p.eyebrow.d2{margin:.55em 0!important}
+  [data-label="Bride and groom"] .name{font-size:1.5em!important;line-height:1.15}
+  [data-label="Bride and groom"] .rule{margin:.4em 0}
   [data-label="Bride and groom"] .rule::before,
-  [data-label="Bride and groom"] .rule::after{width:28px}
+  [data-label="Bride and groom"] .rule::after{width:26px}
+  [data-label="Bride and groom"] .lineage{font-size:.9em;margin-top:.45em}
+  [data-label="Bride and groom"] .lineage.kin{line-height:1.22}
+  [data-label="Bride and groom"] .lineage.kin p + p{margin-top:.38em;padding-top:.38em}
+  [data-label="Bride and groom"] .kin-l{font-size:.6em;letter-spacing:.16em;margin-bottom:.1em}
 
   .dl b{font-size:1.1rem}
   .dl .sep{height:30px}
@@ -596,16 +615,28 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
         <p class="eyebrow gold">The Bride</p>
         <div class="rule"><i class="dia"></i></div>
         <h2 class="name gold" style="font-size:clamp(1.4rem,2.6vw,2rem)">Vartika</h2>
-        <p class="lineage">Grand D/O Smt. Tara Devi &amp; Bashistha Narayan Singh<br>
-          D/O Ragini Singh &amp; Jayant Singh</p>
+        <div class="lineage kin">
+          <p><span class="kin-l">Paternal Grandparents</span>
+            <span class="nw">Smt Tara Devi</span> <span class="nw">&amp; Bashistha Narayan Singh</span></p>
+          <p><span class="kin-l">Maternal Grandparents</span>
+            <span class="nw">Late Smt Nirmala Devi</span> <span class="nw">&amp; Late Karuna Kant Singh</span></p>
+          <p><span class="kin-l">Daughter of</span>
+            <span class="nw">Ragini Singh</span> <span class="nw">&amp; Jayant Singh</span></p>
+        </div>
       </div>
       <p class="eyebrow gold rv d2" style="margin:14px 0">with</p>
       <div class="card rv d3" style="max-width:min(430px,90%);margin:0 auto">
         <p class="eyebrow gold">The Groom</p>
         <div class="rule"><i class="dia"></i></div>
         <h2 class="name gold" style="font-size:clamp(1.4rem,2.6vw,2rem)">Jairam</h2>
-        <p class="lineage">Grand S/O Late Lakshmi Ammai &amp; Late Rama Vadhyar<br>
-          S/O Late P Uma Sankar &amp; KR Sankar</p>
+        <div class="lineage kin">
+          <p><span class="kin-l">Paternal Grandparents</span>
+            <span class="nw">Late Smt Lakshmi Ammal</span> <span class="nw">&amp; Late Sri Rama Vadhyar</span></p>
+          <p><span class="kin-l">Maternal Grandparents</span>
+            <span class="nw">Late Smt K V Rajammal</span> <span class="nw">&amp; Late Sri R Parameswaran</span></p>
+          <p><span class="kin-l">Son of</span>
+            <span class="nw">Late P Uma Sankar</span> <span class="nw">&amp; KR Sankar</span></p>
+        </div>
       </div>
     </div></div>
   </div>
@@ -765,6 +796,92 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
 
   var bar = document.getElementById('progress'), ticking = false;
 
+  /* Fit check for every page. Phones can enlarge text through their own
+     settings (Android font size, Chrome text scaling), which grows the words
+     but not the picture behind them. Each text block is measured against the
+     painting it sits on, and if it would spill past it, it is scaled down just
+     enough to fit. When it already fits, nothing changes. */
+  var MARGIN = 12;
+  var phone = matchMedia('(max-width: 760px)');
+  var canZoom = 'zoom' in document.documentElement.style;
+  var fits = panels.filter(function(p){ return !p.querySelector('.card.crisp'); }).map(function(p){
+    var art = p.querySelector('.art'), f = { hold: p.querySelector('.hold'), inner: p.querySelector('.hold .inner'), ar: 0 };
+    var src = art && (art.getAttribute('data-src') || ((art.getAttribute('style')||'').match(/url\(['"]?([^'")]+)/)||[])[1]);
+    if(src){ var im = new Image(); im.onload = function(){ f.ar = im.naturalWidth / im.naturalHeight; fitAll(); }; im.src = src; }
+    return f;
+  }).filter(function(f){ return f.hold && f.inner; });
+  function fitAll(){
+    fits.forEach(function(f){
+      var kids = [].slice.call(f.inner.children);
+      kids.forEach(function(k){ k.style.zoom = ''; });
+      var H = f.hold.clientHeight;
+      if(!H || !canZoom) return;
+      var cs = getComputedStyle(f.inner);
+      var top = parseFloat(cs.top) || H/2;
+      var pad = (parseFloat(cs.paddingTop)||0) + (parseFloat(cs.paddingBottom)||0);
+      var lo = 0, hi = H;
+      if(phone.matches && f.ar){
+        var P = Math.min(H, f.hold.clientWidth / f.ar);
+        lo = (H - P) / 2; hi = (H + P) / 2;
+      }
+      var avail = 2 * Math.min(top - lo, hi - top) - MARGIN*2 - pad;
+      var need = f.inner.offsetHeight - pad;
+      if(need <= avail || need <= 0) return;
+      var z = Math.max(0.55, avail / need);
+      kids.forEach(function(k){ k.style.zoom = z.toFixed(3); });
+      var again = f.inner.offsetHeight - pad;
+      if(again > avail) kids.forEach(function(k){ k.style.zoom = (z * avail / again).toFixed(3); });
+    });
+  }
+  var lastW = innerWidth;
+
+  /* The schedule: when it is taller than the screen, the page is lengthened by
+     exactly the overflow and the card moves up one pixel per pixel scrolled,
+     so it reads like ordinary scrolling, then rests on the venue before fading. */
+  var PAD = 16, tall = [];
+  panels.forEach(function(p){
+    var card = p.querySelector('.card.crisp');
+    if(card) tall.push({p:p, stick:p.querySelector('.stick'), card:card, extra:0});
+  });
+  function measure(){
+    tall.forEach(function(t){
+      var sh = t.stick.clientHeight || innerHeight;
+      t.extra = Math.max(0, t.card.offsetHeight - sh + PAD*2);
+      t.p.style.height = t.extra > 0 ? (sh*1.5 + t.extra) + 'px' : '';
+    });
+  }
+  function glide(p, pin){
+    for(var k=0;k<tall.length;k++){
+      var t = tall[k];
+      if(t.p !== p || t.extra <= 0) continue;
+      var dist = Math.max(1, p.offsetHeight - innerHeight);
+      var moved = clamp(pin * dist, 0, t.extra);
+      return { shift: t.extra/2 - moved, fadeAt: Math.min(0.94, (t.extra + innerHeight*0.3) / dist) };
+    }
+    return { shift: 0, fadeAt: 0.86 };
+  }
+  fitAll(); measure();
+  if('ResizeObserver' in window){
+    var ro = new ResizeObserver(function(){ measure(); frame(); });
+    tall.forEach(function(t){ ro.observe(t.card); });
+  }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ measure(); frame(); });
+  if('ResizeObserver' in window){
+    var lastH = [];
+    var ro2 = new ResizeObserver(function(entries){
+      var changed = false;
+      entries.forEach(function(e){
+        var k = -1; fits.forEach(function(f,i){ if(f.hold === e.target) k = i; });
+        var h = Math.round(e.contentRect.height);
+        if(lastH[k] !== h){ lastH[k] = h; changed = true; }
+      });
+      if(changed) fitAll();
+    });
+    fits.forEach(function(f){ ro2.observe(f.hold); });
+  }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+  addEventListener('load', fitAll);
+
   function frame(){
     ticking = false;
     var h = innerHeight, max = document.body.scrollHeight - h;
@@ -786,9 +903,10 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
       /* reveal once pinned, fade out just before the next panel wipes over */
       if(enter < 0.35) p.classList.add('in'); else p.classList.remove('in');
       if(hold){
-        var out = pin > 0.86 ? (pin - 0.86) / 0.14 : 0;
+        var g = glide(p, pin);
+        var out = pin > g.fadeAt ? clamp((pin - g.fadeAt) / (1 - g.fadeAt), 0, 1) : 0;
         hold.style.opacity = 1 - out;
-        hold.style.transform = reduce ? '' : 'translate3d(0,'+(-out*22).toFixed(1)+'px,0)';
+        hold.style.transform = 'translate3d(0,'+(g.shift - (reduce ? 0 : out*22)).toFixed(1)+'px,0)';
       }
     });
     dotEls.forEach(function(d,i){ d.setAttribute('aria-current', i===active ? 'true':'false'); });
@@ -799,7 +917,10 @@ footer{position:relative;z-index:3;padding:40px 20px 52px;text-align:center;back
     else setTimeout(prefetchAll, 2500);
   });
   addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(frame); } }, {passive:true});
-  addEventListener('resize', frame);
+  addEventListener('resize', function(){
+    if(innerWidth !== lastW){ lastW = innerWidth; fitAll(); measure(); }
+    frame();
+  });
   frame();
 
   /* background music: starts on its own, quietly, and unmutes at the first touch */
